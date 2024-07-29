@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rutina de Gimnasio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Rutina de Gimnasio</h1>
+    <div>
+        <label for="weekSelector">Selecciona la Semana:</label>
+        <select id="weekSelector" onchange="loadWeekData()">
+            <!-- Semanas serán generadas dinámicamente -->
+        </select>
+    </div>
+    <div class="tab">
+        <button class="tablinks" onclick="openDay(event, 'Dia1')">Día 1 - Piernas y Abs</button>
+        <button class="tablinks" onclick="openDay(event, 'Dia2')">Día 2 - Espalda y Bíceps</button>
+        <button class="tablinks" onclick="openDay(event, 'Dia3')">Día 3 - Pecho y Tríceps</button>
+        <button class="tablinks" onclick="openDay(event, 'Dia4')">Día 4 - Hombros y Abs</button>
+    </div>
+
+    <div id="Dia1" class="tabcontent">
+        <h3>Día 1 - Piernas y Abs</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ejercicio</th>
+                    <th>Series</th>
+                    <th>Repeticiones</th>
+                    <th>Peso</th>
+                    <th>Hecho</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Calentamiento: Bicicleta estática o cinta de correr</td>
+                    <td>1</td>
+                    <td>10 min</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <tr>
+                    <td>Sentadillas con barra</td>
+                    <td>4</td>
+                    <td>8-10</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <!-- Añadir el resto de ejercicios aquí -->
+                <tr>
+                    <td>Prensa de piernas</td>
+                    <td>4</td>
+                    <td>10</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <tr>
+                    <td>Peso muerto rumano con mancuernas</td>
+                    <td>3</td>
+                    <td>10</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <tr>
+                    <td>Extensiones de piernas en máquina</td>
+                    <td>3</td>
+                    <td>12</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <tr>
+                    <td>Curl de piernas en máquina</td>
+                    <td>3</td>
+                    <td>12</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <tr>
+                    <td>Elevación de talones (gemelos) en máquina</td>
+                    <td>4</td>
+                    <td>15</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <tr>
+                    <td>Crunches en máquina</td>
+                    <td>3</td>
+                    <td>15</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <tr>
+                    <td>Plancha abdominal</td>
+                    <td>3</td>
+                    <td>1</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="Dia2" class="tabcontent">
+        <h3>Día 2 - Espalda y Bíceps</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ejercicio</th>
+                    <th>Series</th>
+                    <th>Repeticiones</th>
+                    <th>Peso</th>
+                    <th>Hecho</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Calentamiento: Remo ergómetro</td>
+                    <td>1</td>
+                    <td>10 min</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <tr>
+                    <td>Dominadas asistidas</td>
+                    <td>4</td>
+                    <td>8-10</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <!-- Añadir el resto de ejercicios aquí -->
+                <tr>
+                    <td>Remo con barra</td>
+                    <td>4</td>
+                    <td>10</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <tr>
+                    <td>Remo en máquina sentado</td>
+                    <td>3</td>
+                    <td>10</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <tr>
+                    <td>Pullover con mancuerna</td>
+                    <td>3</td>
+                    <td>12</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <tr>
+                    <td>Curl de bíceps con barra</td>
+                    <td>4</td>
+                    <td>10</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <tr>
+                    <td>Curl de bíceps alterno con mancuernas</td>
+                    <td>3</td>
+                    <td>12</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <tr>
+                    <td>Curl concentrado</td>
+                    <td>3</td>
+                    <td>12</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="Dia3" class="tabcontent">
+        <h3>Día 3 - Pecho y Tríceps</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ejercicio</th>
+                    <th>Series</th>
+                    <th>Repeticiones</th>
+                    <th>Peso</th>
+                    <th>Hecho</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Calentamiento: Cinta de correr o elíptica</td>
+                    <td>1</td>
+                    <td>10 min</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <tr>
+                    <td>Press de banca con barra</td>
+                    <td>4</td>
+                    <td>8-10</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <!-- Añadir el resto de ejercicios aquí -->
+                <tr>
+                    <td>Press inclinado con mancuernas</td>
+                    <td>4</td>
+                    <td>10</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <tr>
+                    <td>Aperturas con mancuernas</td>
+                    <td>3</td>
+                    <td>12</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <tr>
+                    <td>Fondos en paralelas</td>
+                    <td>3</td>
+                    <td>8</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <tr>
+                    <td>Press francés con barra</td>
+                    <td>4</td>
+                    <td>10</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <tr>
+                    <td>Extensiones de tríceps en polea</td>
+                    <td>3</td>
+                    <td>12</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <tr>
+                    <td>Patadas de tríceps con mancuernas</td>
+                    <td>3</td>
+                    <td>12</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="Dia4" class="tabcontent">
+        <h3>Día 4 - Hombros y Abs</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ejercicio</th>
+                    <th>Series</th>
+                    <th>Repeticiones</th>
+                    <th>Peso</th>
+                    <th>Hecho</th>
+                </tr>
+            </thead>
+<tbody>
+                <tr>
+                    <td>Calentamiento: Bicicleta estática o cinta de correr</td>
+                    <td>1</td>
+                    <td>10 min</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <tr>
+                    <td>Press militar con barra</td>
+                    <td>4</td>
+                    <td>8-10</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <!-- Añadir el resto de ejercicios aquí -->
+                                 <tr>
+                    <td>Elevaciones laterales con mancuernas</td>
+                    <td>4</td>
+                    <td>10</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <tr>
+                    <td>Elevaciones frontales con mancuernas</td>
+                    <td>3</td>
+                    <td>12</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <tr>
+                    <td>Remo al mentón con barra</td>
+                    <td>3</td>
+                    <td>10</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <tr>
+                    <td>Pájaros (elevaciones posteriores) con mancuernas</td>
+                    <td>3</td>
+                    <td>12</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <tr>
+                    <td>Encogimientos de hombros con mancuernas</td>
+                    <td>4</td>
+                    <td>15</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <tr>
+                    <td>Elevaciones de piernas en banco inclinado</td>
+                    <td>3</td>
+                    <td>15</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+                <tr>
+                    <td>Crunches con peso</td>
+                    <td>3</td>
+                    <td>15</td>
+                    <td><select onchange="handleWeightChange(this)">
+                        <option value=""></option>
+                    </select></td>
+                    <td><input type="checkbox" onchange="toggleStrike(this)"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="weightModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>Introduce el peso personalizado:</p>
+            <input type="number" id="customWeight" min="0" step="0.1">
+            <button onclick="addCustomWeight()">Agregar</button>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
