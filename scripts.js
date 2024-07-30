@@ -53,13 +53,36 @@ function addCustomWeight() {
     select.add(option);
     select.value = weight;
 
+    saveCustomWeights();
     closeModal();
     saveProgress();
+}
+
+function saveCustomWeights() {
+    var customWeights = [];
+    var selects = document.querySelectorAll("tbody select");
+    selects.forEach(function(select) {
+        for (var i = 0; i < select.options.length; i++) {
+            if (select.options[i].value !== "otro" && !isDefaultWeight(select.options[i].value)) {
+                customWeights.push(select.options[i].value);
+            }
+        }
+    });
+    localStorage.setItem("customWeights", JSON.stringify(customWeights));
+}
+
+function isDefaultWeight(value) {
+    var defaultWeights = [];
+    for (var i = 2.5; i <= 80; i += 2.5) {
+        defaultWeights.push(i.toString());
+    }
+    return defaultWeights.includes(value);
 }
 
 document.addEventListener("DOMContentLoaded", function() {
     document.querySelector(".tab button").click();
 
+    var customWeights = JSON.parse(localStorage.getItem("customWeights")) || [];
     var weightSelects = document.querySelectorAll("tbody select");
     weightSelects.forEach(function(select) {
         for (var i = 2.5; i <= 80; i += 2.5) {
@@ -68,6 +91,12 @@ document.addEventListener("DOMContentLoaded", function() {
             option.text = i + " kg";
             select.add(option);
         }
+        customWeights.forEach(function(weight) {
+            var option = document.createElement("option");
+            option.value = weight;
+            option.text = weight + " kg";
+            select.add(option);
+        });
         var option = document.createElement("option");
         option.value = "otro";
         option.text = "Otro";
