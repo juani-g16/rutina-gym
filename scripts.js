@@ -49,7 +49,7 @@ function addCustomWeight() {
     var select = document.getElementById("weightModal").currentSelect;
     var option = document.createElement("option");
     option.value = weight;
-    option.text = weight + " kg";
+    option.text = weight;
     select.add(option);
     select.value = weight;
 
@@ -88,13 +88,13 @@ document.addEventListener("DOMContentLoaded", function() {
         for (var i = 2.5; i <= 80; i += 2.5) {
             var option = document.createElement("option");
             option.value = i;
-            option.text = i + " kg";
+            option.text = i;
             select.add(option);
         }
         customWeights.forEach(function(weight) {
             var option = document.createElement("option");
             option.value = weight;
-            option.text = weight + " kg";
+            option.text = weight;
             select.add(option);
         });
         var option = document.createElement("option");
